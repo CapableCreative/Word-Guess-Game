@@ -48,6 +48,10 @@ h1 {
 .contained {
     max-width: 750px;
 }
+#messageToPlayer {
+    max-width: 500px;
+    margin: 0px auto;
+}
 
 #blankspace p {
     display: inline;
@@ -55,4 +59,20 @@ h1 {
     top: 120px;
     font-size: 6.35rem;
     letter-spacing: 2px;
+    text-align: center;
+}
+#blankspace span {
+    font-size: 6.35rem;
+}
+#messageToPlayer p {
+    display: inline;
+    float:left;
+    font-size: 2rem;
+    letter-spacing: 0px;
+    text-transform: none;
+    font-family: 'Helvetica Neue', Arial, Helvetica, sans-serif;
+}
+p#successMessage, p#failureMessage {
+    color: #000;
+    transition: all 2s ease .5s;
 }

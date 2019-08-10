@@ -25,7 +25,7 @@ $(document).ready(function() {
 
 // 1. Create a WORDBANK array to store possible words.
     var wordBank = ["terror","nightmare","horror","shreik","manbuns","decaf","midnight","headstone","cthulu","wraith","bloodbath"];
-    var underline = ['_ '];
+    //var underline = ['_ '];
 
     // a. Display randomly CHOSEN index within WORDBANK
     var chosen = wordBank[Math.floor(Math.random() * wordBank.length)];
@@ -42,9 +42,22 @@ $(document).ready(function() {
     // c. Display individual underlines matching WORDLETTER 
     for (var i = 0; i < wordletter; i++) {
         var pwrapper = document.createElement("P");
-        var dashString = document.createTextNode(underline);
-        pwrapper.appendChild(dashString);
-        blankHold.appendChild(pwrapper);  
+        var matchwrapper = document.createElement("SPAN");
+        //var dashString = document.createTextNode(chosen[i]);
+        var matchedLetter = document.createTextNode(chosen[i]);
+        pwrapper.appendChild(matchedLetter);
+        blankHold.appendChild(matchwrapper);  
+        matchwrapper.appendChild(matchedLetter);
+        matchwrapper.setAttribute("class", chosen[i]);
+            
+        
+    
+        
+
+
+
+
+
     }
 // 2. Account for score, remaining letters, and increments
     var lettersLeft = chosen.length;
@@ -60,11 +73,16 @@ $(document).ready(function() {
         }
         else {
             for (var j = 0; j < chosen.length; j++) {
+                var successP = document.createElement('P');
+                var successText = document.createTextNode(chosen[j]);
+                var messageDiv = document.getElementById('messageToPlayer');
                 if (chosen[j] == userGuess) {
                     wordBank[j] = userGuess;
                     lettersLeft--;
-                    alert('Good Job ' + userGuess + " is in the word!");
-                }     
+                    messageDiv.appendChild(successP);
+                    successP.appendChild(successText);
+                    document.getElementsByTagName('span')[j].style.color = 'RED';
+                } 
             }
         }
     }
