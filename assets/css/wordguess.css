@@ -48,3 +48,10 @@ h1 {
 .contained {
     max-width: 750px;
 }
+
+#blankspace p {
+    display: inline;
+    position: relative;
+    top: 120px;
+    font-size: 4.5rem;
+}

@@ -24,13 +24,34 @@
 
 $(document).ready(function() {
 
+// 1. Create a WORDBANK array to store possible words.
     var wordBank = ["terror","nightmare","horror","shreik","manbuns","decaf","midnight","headstone","cthulu","wraith","bloodbath"];
-    var chosen = wordBank[Math.floor(Math.random()*wordBank.length)];
+    
+    // a. Display randomly CHOSEN index within WORDBANK
+    var chosen = wordBank[Math.floor(Math.random() * wordBank.length)];
     var gamers = document.getElementById('gameContent');
+    var dhold = document.getElementById('blankspace');
 
-    var node = document.createElement("P");                 // Create a <li> node
-    var textnode = document.createTextNode(chosen);         // Create a text node
-    node.appendChild(textnode);                              // Append the text to <li>
-    document.getElementById("gameContent").appendChild(node);     // Append <li> to <ul> with id="myList" 
+    var node = document.createElement("P");                 
+    var textnode = document.createTextNode(chosen);         
+    node.appendChild(textnode);                              
+    gamers.appendChild(node); 
 
+    // b. Display individual letters of WORDBANK index, assign to WORDLETTER 
+    var wordletter = chosen.length;
+    //var underline = "_ "
+
+    for (var i = 0; i < wordletter; i++) {
+        var underline = ['_ '];
+
+        var pwrapper = document.createElement("P");
+        var dashString = document.createTextNode(underline);
+        pwrapper.appendChild(dashString);
+        dhold.appendChild(pwrapper);
+        
+        console.log(wordletter);
+
+       
+    }
+    
 });
