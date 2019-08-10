@@ -1,0 +1,50 @@
+/* ------------------------ 
+FSF JAVASCRIPT HOMEWORK
+AUGUST 10, 2019
+STEPHEN L. FOX 
+
+---- STYLES INDEX ----
+1. HTML ELEMENTS
+2. SCAFFOLDING
+3. NAVIGATION
+************************ */
+
+
+/* ===========================================
+----------- 2. SCAFFOLDING -------------------
+=========================================== */
+
+body {
+    background: #000000;
+    font-family: 'Oswald','Montserrat','Bebas Neue','Impact','Helvetica Neue', Arial, Helvetica, sans-serif;
+}
+h1 {
+    color: #FFF;
+    font-size: 5rem;
+    transform: skewY(-3deg);
+    text-shadow: 4px 4px 0px #333;
+    margin-bottom: 20px;
+}
+#gameContent p {
+    color: #FFF;
+    text-transform: uppercase;
+    font-size: 6rem;
+    font-weight: 700;
+    letter-spacing: 12px;
+    text-align: center;
+}
+.centered {
+    margin: 0px auto;
+    text-align: center;
+    align-content: center;
+    justify-content: center;
+}
+.main {
+    margin: 40px auto;
+    padding: 40px;
+    background: #666666;
+    border-radius: 410px 410px 40px 40px;
+}
+.contained {
+    max-width: 750px;
+}
