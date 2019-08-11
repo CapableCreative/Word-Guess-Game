@@ -22,21 +22,14 @@
 // JQuery function that allows js to start its work once the page is fully rendered.
 // NOTE: Setting scripts to load via "defer" also accomplishes this. - SLF
 
-       
-
-
-
-
-// 1. Create a WORDBANK array to store possible words.
+// ----- 1. Create a WORDBANK array to store possible words.
     var wordBank = ["terror","nightmare","horror","shreik","manbuns","decaf","midnight","headstone","cthulu","wraith","bloodbath"];
-
-    // a. Display randomly CHOSEN index within WORDBANK
-    var chosen = wordBank[Math.floor(Math.random() * wordBank.length)];
+// ---------- a. Display randomly CHOSEN index within WORDBANK
+    var chosen = wordBank[Math.floor(Math.random() * wordBank.length)]; 
     var blankHold = document.getElementById('blankspace');
-
-    // b. Display individual letters of WORDBANK index, assign to WORDLETTER 
+// ---------- b. Display individual letters of WORDBANK index, assign to WORDLETTER 
     var wordletter = chosen.length;
-    // c. Display individual underlines matching WORDLETTER 
+// ---------- c. Display individual underlines matching WORDLETTER 
     for (var i = 0; i < wordletter; i++) {
         var pwrapper = document.createElement("P");
         var matchwrapper = document.createElement("SPAN");
@@ -48,8 +41,11 @@
     }
 // 2. Account for score, remaining letters, and increments
     var lettersLeft = chosen.length;
-    var userGuess = 'No Letter Assigned Yet';
     while (lettersLeft > 0) {      
+        if(typeof console == 'undefined'){
+            console = {};
+            console.log = function(arg){return true;};
+        }
         $(document).keyup(function(userGuess){
             switch(userGuess.keyCode){
                 case 65	:	userGuess = 'a';	break;	// a
@@ -78,28 +74,29 @@
                 case 88	:	userGuess = 'x';	break;	// x
                 case 89	:	userGuess = 'y';	break;	// y
                 case 90	:	userGuess = 'z';	break;	// z
-            }
-            console.log('User Guess is' + userGuess);
-            if (userGuess == null) {
-                console.log("The entered value in null")
-            }
-            else if (userGuess.length > 1) {
-                alert("Pick ONE letter; no more, no less.")
-            }
-            else {
+            }  
+            correctWord(userGuess);
+        });
+        if (userGuess == null) {
+            console.log("The entered value in null")
+        }
+        else if (userGuess.length > 1) {
+            alert("Pick ONE letter; no more, no less.")
+        }
+        function correctWord(x){
                 for (var j = 0; j < chosen.length; j++) {
                     var successP = document.createElement('P');
                     var successText = document.createTextNode(chosen[j]);
                     var messageDiv = document.getElementById('messageToPlayer');
-                    if (chosen[j] == userGuess) {
-                        wordBank[j] = userGuess;
+                    if (chosen[j] == x) {
+                        wordBank[j] = x;
                         lettersLeft--;
                         messageDiv.appendChild(successP);
                         successP.appendChild(successText);
                         document.getElementsByTagName('span')[j].style.color = 'RED';
+                        console.log('FUNCTION FIRED')
                     } 
                 }
-            }
-        });
-
+                
         }
+    }
