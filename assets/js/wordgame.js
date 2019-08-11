@@ -54,12 +54,13 @@ $(document).ready(function() {
 // 2. Account for score, remaining letters, and increments
     var lettersLeft = chosen.length;
 
-    while (lettersLeft > 0) {       
-    var userGuess = prompt("Care to venture a letter guess?").toLowerCase();
-        if (userGuess == "z") {
-            alert("Try again, chump. Invalid entry.")
+    while (lettersLeft > 0) {      
+
+        var userGuess = prompt("Care to venture a letter guess?").toLowerCase();
+        if (userGuess == null) {
+            console.log("The entered value in null")
         }
-        else if (userGuess.length !== 1) {
+        else if (userGuess.length > 1) {
             alert("Pick ONE letter; no more, no less.")
         }
         else {
