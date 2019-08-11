@@ -26,16 +26,17 @@ $(document).ready(function() {
 // 1. Create a WORDBANK array to store possible words.
     var wordBank = ["terror","nightmare","horror","shreik","manbuns","decaf","midnight","headstone","cthulu","wraith","bloodbath"];
     //var underline = ['_ '];
+    
 
     // a. Display randomly CHOSEN index within WORDBANK
     var chosen = wordBank[Math.floor(Math.random() * wordBank.length)];
-    var gameHold = document.getElementById('gameContent');
+    // var gameHold = document.getElementById('gameContent');
     var blankHold = document.getElementById('blankspace');
 
-    var node = document.createElement("P");                 
-    var textnode = document.createTextNode(chosen);         
-    node.appendChild(textnode);                              
-    gameHold.appendChild(node); 
+    //var node = document.createElement("P");                 
+    //var textnode = document.createTextNode(chosen);         
+    // node.appendChild(textnode);                              
+    // gameHold.appendChild(node); 
 
     // b. Display individual letters of WORDBANK index, assign to WORDLETTER 
     var wordletter = chosen.length;
@@ -49,23 +50,13 @@ $(document).ready(function() {
         blankHold.appendChild(matchwrapper);  
         matchwrapper.appendChild(matchedLetter);
         matchwrapper.setAttribute("class", chosen[i]);
-            
-        
-    
-        
-
-
-
-
-
     }
 // 2. Account for score, remaining letters, and increments
     var lettersLeft = chosen.length;
 
-    while (lettersLeft > 0) {
-        
-        var userGuess = prompt("Care to venture a letter guess?").toLowerCase();
-        if (userGuess == null) {
+    while (lettersLeft > 0) {       
+    var userGuess = prompt("Care to venture a letter guess?").toLowerCase();
+        if (userGuess == "z") {
             alert("Try again, chump. Invalid entry.")
         }
         else if (userGuess.length !== 1) {

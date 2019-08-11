@@ -7,18 +7,33 @@
         <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js" defer ></script>
         <script src="assets/js/wordgame.js" defer ></script> 
     </head>
-    <body>
+    <body id="body">
         <section id="wordGame" class="centered main contained">
             <h1>WORD GUESS-O-DOOM</h1>
             <p class="instructions">Do you dare to guess the truly horrifying word? Stroke a key — eh – <i><b>PRESS</b></i> any key to begin.</p>
         </section>
         <div id="gameContent" class="contained centered">
             <div id="messageToPlayer">
-                
+               
+                    <form id="frm1" action="/action_page.php">
+                        <input type="text" name="lname" value="?"><br><br>
+                      </form> 
+                      
+                      
+                      <button onclick="myFunction()">Try it</button>
+                      
+                      <p id="demo"></p>
+                      
+                      <script>
+                      </script>
             </div>
             <br>
             <div id="blankspace">
             </div>
         </div>
+        <script>
+           
+
+        </script>
     </body>
 </html>
