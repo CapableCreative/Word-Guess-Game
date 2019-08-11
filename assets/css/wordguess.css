@@ -52,6 +52,10 @@ h1 {
     max-width: 500px;
     margin: 0px auto;
 }
+#blankspace {
+    position: absolute;
+    bottom: 100px;
+}
 
 #blankspace p {
     display: inline;
