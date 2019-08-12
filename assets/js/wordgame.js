@@ -23,7 +23,7 @@
 // NOTE: Setting scripts to load via "defer" also accomplishes this. - SLF
 
 // ----- 1. Create a WORDBANK array to store possible words.
-    var wordBank = ["terror","nightmare","horror","shreik","manbuns","decaf","midnight","headstone","cthulu","wraith","bloodbath"];
+var wordBank = ["terror","nightmare","horror","shreik","manbuns","decaf","midnight","headstone","cthulhu","wraith","bloodbath"];
 // ---------- a. Display randomly CHOSEN index within WORDBANK
     var chosen = wordBank[Math.floor(Math.random() * wordBank.length)]; 
     var blankHold = document.getElementById('blankspace');
@@ -42,10 +42,6 @@
 // 2. Account for score, remaining letters, and increments
     var lettersLeft = chosen.length;
     while (lettersLeft > 0) {      
-        if(typeof console == 'undefined'){
-            console = {};
-            console.log = function(arg){return true;};
-        }
         $(document).keyup(function(userGuess){
             switch(userGuess.keyCode){
                 case 65	:	userGuess = 'a';	break;	// a
@@ -76,27 +72,29 @@
                 case 90	:	userGuess = 'z';	break;	// z
             }  
             correctWord(userGuess);
+            if (userGuess == "a" ||userGuess == "b" ||userGuess == "c" ||userGuess == "d" ||userGuess == "e" ||userGuess == "f" ||userGuess == "g" ||userGuess == "h" ||userGuess == "i" ||userGuess == "j" ||userGuess =="k" ||userGuess == "l" ||userGuess == "m" ||userGuess == "n" ||userGuess == "o" ||userGuess == "p" ||userGuess == "q" ||userGuess == "r" ||userGuess == "s" ||userGuess == "t" ||userGuess == "u" ||userGuess == "v" ||userGuess == "w" ||userGuess == "x" ||userGuess == "y" ||userGuess == "z"){
+                var lgrave = document.getElementById('graveyard');
+                var ltext = document.createTextNode(userGuess);
+                lgrave.appendChild(ltext);
+            }
         });
-        if (userGuess == null) {
-            console.log("The entered value in null")
-        }
-        else if (userGuess.length > 1) {
-            alert("Pick ONE letter; no more, no less.")
+        if (userGuess.length > 1) {
+            alert("Something went wrong; We'll just say you DIED. HAHAHAHA!")
         }
         function correctWord(x){
-                for (var j = 0; j < chosen.length; j++) {
-                    var successP = document.createElement('P');
-                    var successText = document.createTextNode(chosen[j]);
-                    var messageDiv = document.getElementById('messageToPlayer');
-                    if (chosen[j] == x) {
-                        wordBank[j] = x;
-                        lettersLeft--;
-                        messageDiv.appendChild(successP);
-                        successP.appendChild(successText);
-                        document.getElementsByTagName('span')[j].style.color = 'RED';
-                        console.log('FUNCTION FIRED')
-                    } 
-                }
-                
+            for (var i = 0; i < chosen.length; i++) {
+                if ((chosen[i] === x) || (x.length > 1)) {
+                    document.getElementsByTagName('span')[i].style.top = '0px';
+                    document.getElementsByTagName('span')[i].style.color = '#F9F3B8';
+                } 
+            }
         }
     }
+   /* else if (chosen[i] !== x){
+        var ugGetDiv = document.getElementById('messageToPlayer');
+        var ugSpan = document.createElement('SPAN');
+        var ugTextNode = document.createTextNode(x);
+        ugGetDiv.appendChild(ugSpan);
+        ugSpan.appendChild(ugTextNode);    
+        console.log(x)     
+    }*/

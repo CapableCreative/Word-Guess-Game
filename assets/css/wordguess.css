@@ -15,15 +15,24 @@ STEPHEN L. FOX
 =========================================== */
 
 body {
-    background: #000000;
+    background: url('../img/cemetary.jpg') center center no-repeat #000;
+    background-size: cover;
     font-family: 'Oswald','Montserrat','Bebas Neue','Impact','Helvetica Neue', Arial, Helvetica, sans-serif;
 }
 h1 {
-    color: #FFF;
+    color: #f9f3b8;
+    font-family: 'Creepster', 'Oswald','Impact', Arial, Helvetica, sans-serif;
     font-size: 5rem;
     transform: skewY(-3deg);
-    text-shadow: 4px 4px 0px #333;
-    margin-bottom: 20px;
+    text-align: center;
+    text-shadow: 5px 5px 3px #000;
+    margin-bottom: 0px;
+    box-sizing: border-box;
+}
+section {
+    width: 100%;
+    max-width: 800px;
+    margin: 0px auto;
 }
 #gameContent p {
     color: #FFF;
@@ -33,17 +42,23 @@ h1 {
     letter-spacing: 12px;
     text-align: center;
 }
-.centered {
-    margin: 0px auto;
+.instructions {
+    color: #fff;
     text-align: center;
-    align-content: center;
-    justify-content: center;
+    font-size: 2rem;
+    line-height: 3rem;
+    text-shadow: 3px 3px 0px #000;
 }
+
 .main {
-    margin: 40px auto;
-    padding: 40px;
-    background: #666666;
-    border-radius: 410px 410px 40px 40px;
+    margin: 40px auto 0px;
+    background: url(../img/tombstone.jpg) center center;
+    background-size: cover;
+    border-radius: 400px 400px 20px 20px;
+    transform: skewY(-1deg);
+    box-sizing: border-box;
+    border: 20px solid rgba(0,0,0,0.5);
+    box-shadow: 0px 5px 20px #000;
 }
 .contained {
     max-width: 750px;
@@ -53,21 +68,27 @@ h1 {
     margin: 0px auto;
 }
 #blankspace {
-    position: absolute;
     bottom: 100px;
+    display: flex;
+    align-content: center;
+    justify-content: space-around;
+    max-width: 700px;
+    margin: 0px auto;
+    background: rgba(0,0,0,0.5);
+    border-radius: 20px;
+    padding: 20px 20px 40px 20px;
 }
 
-#blankspace p {
-    display: inline;
-    position: relative;
-    top: 120px;
-    font-size: 6.35rem;
-    letter-spacing: 2px;
-    text-align: center;
-}
+
 #blankspace span {
+    position: relative;
+    top: 500px;
     font-size: 6.35rem;
-}
+    border-bottom: 5px solid #FFF;
+    padding-bottom: 30px;
+    transition: all .5s ease .125s;
+    text-shadow: 0px 5px 5px #000;
+    }
 #messageToPlayer p {
     display: inline;
     float:left;
@@ -80,3 +101,58 @@ p#successMessage, p#failureMessage {
     color: #000;
     transition: all 2s ease .5s;
 }
+#graveyard {
+    text-align: center;
+    color: #FFF;
+    font-size: 20px;
+    letter-spacing: 5px;
+    text-transform: uppercase;
+    background: #e21e2d;
+    border-radius: 50px;
+    margin: 20px auto;
+    padding: 20px;
+    box-sizing: border-box;
+}
+#graveyard h2 {
+    color: #FFF;
+    letter-spacing: 0px;
+    font-size: 25px;
+    background: #900;
+    border-radius: 50px;
+    transform: skewY(-2deg);
+    transform: rotateY(3deg);
+    padding: 10px;
+    margin-bottom: 7px;
+}
+button {
+    font-size: 2rem;
+    background: #e21e2d;
+    padding: 5px 30px;
+    border: none;
+    border-radius: 7px;
+    text-align: center;
+    margin: 40px auto;
+    display:block;
+    position: relative;
+    transition: all .25s ease .125s;
+    border: 2px solid #FFF;
+    }
+    button:hover{
+        background:#900;
+    }
+button a{
+    position: relative;
+    color: #FFF;
+    padding-bottom: 3px;
+    font-weight: 700;
+    font-family: 'Oswald','Bebas Neue','Impact', Arial, Helvetica, sans-serif;
+    text-align: center;
+    text-decoration: none;
+    text-shadow: 0px 5px 0px #900;
+    transition: all .25s ease .125s;
+    top: -5px;
+    }
+    button a:hover {
+        top: 0px;
+        text-shadow: 0px 0px 0px #900; 
+    }
