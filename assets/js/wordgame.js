@@ -76,8 +76,15 @@ var wordBank = ["terror","nightmare","horror","shreik","manbuns","decaf","midnig
                 var lgrave = document.getElementById('graveyard');
                 var ltext = document.createTextNode(userGuess);
                 lgrave.appendChild(ltext);
-            }
+            }   
         });
+            var chLength = chosen.length
+            if (lettersLeft > 0) {    
+            var lettCount = document.getElementById('letterCounter');
+                var lettCountCurrent = document.createTextNode(chLength + ' letters');
+                lettCount.appendChild(lettCountCurrent);
+            }
+
         if (userGuess.length > 1) {
             alert("Something went wrong; We'll just say you DIED. HAHAHAHA!")
         }
