@@ -18,6 +18,7 @@ body {
     background: url('../img/cemetary.jpg') center center no-repeat #000;
     background-size: cover;
     font-family: 'Oswald','Montserrat','Bebas Neue','Impact','Helvetica Neue', Arial, Helvetica, sans-serif;
+    overflow: hidden;
 }
 h1 {
     color: #f9f3b8;
@@ -108,7 +109,7 @@ p#successMessage, p#failureMessage {
     letter-spacing: 5px;
     text-transform: uppercase;
     background: #e21e2d;
-    border-radius: 50px;
+    border-radius: 5px;
     margin: 20px auto;
     padding: 20px;
     box-sizing: border-box;
@@ -118,7 +119,7 @@ p#successMessage, p#failureMessage {
     letter-spacing: 0px;
     font-size: 25px;
     background: #900;
-    border-radius: 50px;
+    border-radius: 5px;
     transform: skewY(-2deg);
     transform: rotateY(3deg);
     padding: 10px;
@@ -157,17 +158,16 @@ button a{
         text-shadow: 0px 0px 0px #900; 
     }
     #letterCounter{
-        position: absolute;
+        position: fixed;
         bottom: -3px;
-        right: calc(50% - 50px);
+        right: calc(50% - 175px);
         height: 30px;
-        width: 100px;
         padding: 5px 20px 10px 20px;
         font-size: 2rem;
         border-radius: 20px 20px 0px 0px;
-        background: #e21e2d;
-        border: 3px solid #FFF;
-        color: #FFF;
+        background: #666;
+        border: 3px solid #333;
+        color: #F9F3B8;
         text-align: center;
 
     }

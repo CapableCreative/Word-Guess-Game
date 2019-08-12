@@ -39,6 +39,7 @@ var wordBank = ["terror","nightmare","horror","shreik","manbuns","decaf","midnig
         matchwrapper.appendChild(matchedLetter);
         matchwrapper.setAttribute("class", chosen[i]);
     }
+
 // 2. Account for score, remaining letters, and increments
     var lettersLeft = chosen.length;
     while (lettersLeft > 0) {      
@@ -72,19 +73,18 @@ var wordBank = ["terror","nightmare","horror","shreik","manbuns","decaf","midnig
                 case 90	:	userGuess = 'z';	break;	// z
             }  
             correctWord(userGuess);
-            if (userGuess == "a" ||userGuess == "b" ||userGuess == "c" ||userGuess == "d" ||userGuess == "e" ||userGuess == "f" ||userGuess == "g" ||userGuess == "h" ||userGuess == "i" ||userGuess == "j" ||userGuess =="k" ||userGuess == "l" ||userGuess == "m" ||userGuess == "n" ||userGuess == "o" ||userGuess == "p" ||userGuess == "q" ||userGuess == "r" ||userGuess == "s" ||userGuess == "t" ||userGuess == "u" ||userGuess == "v" ||userGuess == "w" ||userGuess == "x" ||userGuess == "y" ||userGuess == "z"){
+            if (userGuess == "a" ||userGuess == "b" ||userGuess == "c" ||userGuess == "d" ||userGuess == "e" ||userGuess == "f" ||userGuess == "g" ||userGuess == "h" ||userGuess == "i" ||userGuess == "j" ||userGuess =="k" ||userGuess == "l" ||userGuess == "m" ||userGuess == "n" ||userGuess == "o" ||userGuess == "p" ||userGuess == "q" ||userGuess == "r" ||userGuess == "s" ||userGuess == "t" ||userGuess == "u" ||userGuess == "v" ||userGuess == "w" ||userGuess == "x" ||userGuess == "y" ||userGuess == "z"){      
                 var lgrave = document.getElementById('graveyard');
                 var ltext = document.createTextNode(userGuess);
                 lgrave.appendChild(ltext);
-            }   
+            }               
         });
             var chLength = chosen.length
             if (lettersLeft > 0) {    
-            var lettCount = document.getElementById('letterCounter');
-                var lettCountCurrent = document.createTextNode(chLength + ' letters');
+                var lettCount = document.getElementById('letterCounter');
+                var lettCountCurrent = document.createTextNode('This word is ' + chLength + ' letters long');
                 lettCount.appendChild(lettCountCurrent);
             }
-
         if (userGuess.length > 1) {
             alert("Something went wrong; We'll just say you DIED. HAHAHAHA!")
         }
@@ -93,7 +93,8 @@ var wordBank = ["terror","nightmare","horror","shreik","manbuns","decaf","midnig
                 if ((chosen[i] === x) || (x.length > 1)) {
                     document.getElementsByTagName('span')[i].style.top = '0px';
                     document.getElementsByTagName('span')[i].style.color = '#F9F3B8';
-                } 
+                    
+                }
             }
         }
     }
