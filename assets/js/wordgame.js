@@ -1,13 +1,16 @@
 /* --------------------------------------------
     WORD GUESS GAME - HOMEWORK 3 ASSIGNMENT - FSF BOOTCAMP - 8/10/2019
-    PSEUDO SCRIPTING (I know, I know ... it should be inline (but I hate that))
+    PSEUDO SCRIPTING -- Also inline
 
-    1. Create a WORDBANK array to store possible words.
-        a. Display randomly CHOSEN index within WORDBANK
-        b. Display individual letters of WORDBANK index, assign to WORDLETTER 
-    2. Capture user's KEYSTROKE.
-    3. Compare KEYSTROKE to WORDLETTER.
-        a. Match == display MATCHED character in it's place via CSS & increase SCORE & message of SUCCESS
+    1(29). Create a *wordBank* array to store possible words.
+        a. Display randomly *chosen* index within *wordBank*
+        b. Display individual letters of *wordBank* index, assign to *wordLetter* 
+    2(44). Capture user's, keystroke into *userGuess*.
+        a. Create globally scoped function for the *correctWord*; assign *userGuess* local variable to *correctWord* argument. 
+        b. Log *userGuess* to a Letter Graveyard, displaying user entry history.
+        c. Determine *chosen.length* and display for user
+    3(92). Compare *userGuess* to *chosen* index item.
+        a. Match == display MATCHED character in it's place via CSS & ( FUTURE IMPROVEMENT -- increase SCORE & message of SUCCESS -- )
         b. No Match == reduce number of guesses? or infinite guesses? & Display message of DOOM & store guess in GRAVEYARD
 
     // VARIABLE BANK
@@ -16,20 +19,19 @@
         userGuess = user's guess
         wordletter = individual letters in WORDBANK index item
         matched = successfully matched letters
-        graveyard = unmatched guesses so far
+        lettersLeft = remaining unguessed letters
 
 -------------------------------------------- */
 // JQuery function that allows js to start its work once the page is fully rendered.
 // NOTE: Setting scripts to load via "defer" also accomplishes this. - SLF
 
-// ----- 1. Create a WORDBANK array to store possible words.
-var wordBank = ["terror","nightmare","horror","shreik","manbuns","decaf","midnight","headstone","cthulhu","wraith","bloodbath"];
-// ---------- a. Display randomly CHOSEN index within WORDBANK
+// ----- 1. Create a *wordBank* array to store possible words.
+var wordBank = ["terror","nightmare","horror","shreik","manbuns","decaf","midnight","headstone","cthulhu","wraith","bloodbath","madhouse","torment"];
+// ---------- a. Display randomly *chosen* index within *wordBank*.
     var chosen = wordBank[Math.floor(Math.random() * wordBank.length)]; 
-    var blankHold = document.getElementById('blankspace');
-// ---------- b. Display individual letters of WORDBANK index, assign to WORDLETTER 
+    var blankHold = document.getElementById('blankspace'); 
     var wordletter = chosen.length;
-// ---------- c. Display individual underlines matching WORDLETTER 
+// ---------- b. Display individual letters of *chosen*. 
     for (var i = 0; i < wordletter; i++) {
         var pwrapper = document.createElement("P");
         var matchwrapper = document.createElement("SPAN");
@@ -39,8 +41,7 @@ var wordBank = ["terror","nightmare","horror","shreik","manbuns","decaf","midnig
         matchwrapper.appendChild(matchedLetter);
         matchwrapper.setAttribute("class", chosen[i]);
     }
-
-// 2. Account for score, remaining letters, and increments
+//  2. Capture user's, keystroke into *userGuess*.
     var lettersLeft = chosen.length;
     while (lettersLeft > 0) {      
         $(document).keyup(function(userGuess){
@@ -79,15 +80,16 @@ var wordBank = ["terror","nightmare","horror","shreik","manbuns","decaf","midnig
                 lgrave.appendChild(ltext);
             }               
         });
-            var chLength = chosen.length
-            if (lettersLeft > 0) {    
-                var lettCount = document.getElementById('letterCounter');
-                var lettCountCurrent = document.createTextNode('This word is ' + chLength + ' letters long');
-                lettCount.appendChild(lettCountCurrent);
-            }
-        if (userGuess.length > 1) {
-            alert("Something went wrong; We'll just say you DIED. HAHAHAHA!")
+        var chLength = chosen.length;
+        if (lettersLeft > 0) {    
+            var lettCount = document.getElementById('letterCounter');
+            var lettCountCurrent = document.createTextNode('This word is ' + chLength + ' letters long');
+            lettCount.appendChild(lettCountCurrent);
         }
+        if (userGuess.length > 1) {
+            alert("Something went wrong; We'll just say you DIED. HAHAHAHA!");
+        }
+// 3. Compare *userGuess* to *chosen* index item.        
         function correctWord(x){
             for (var i = 0; i < chosen.length; i++) {
                 if ((chosen[i] === x) || (x.length > 1)) {
